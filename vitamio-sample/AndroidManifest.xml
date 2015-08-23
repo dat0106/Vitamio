@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="io.vov.vitamio.demo"
-    android:versionCode="002"
-    android:versionName="0.0.2" >
+    package="io.vov.vitamio.demo">
 
-    <uses-sdk
-        android:minSdkVersion="7"
-        android:targetSdkVersion="19" />
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.INTERNET" />
