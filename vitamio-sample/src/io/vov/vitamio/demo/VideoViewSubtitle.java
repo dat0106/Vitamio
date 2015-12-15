@@ -22,9 +22,9 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import io.vov.vitamio.LibsChecker;
 import io.vov.vitamio.MediaPlayer;
 import io.vov.vitamio.MediaPlayer.OnTimedTextListener;
+import io.vov.vitamio.Vitamio;
 import io.vov.vitamio.widget.VideoView;
 
 public class VideoViewSubtitle extends Activity {
@@ -39,8 +39,7 @@ public class VideoViewSubtitle extends Activity {
 	@Override
 	public void onCreate(Bundle icicle) {
 		super.onCreate(icicle);
-		if (!LibsChecker.checkVitamioLibs(this))
-			return;
+		Vitamio.isInitialized(getApplicationContext());
 		setContentView(R.layout.subtitle2);
 		mVideoView = (VideoView) findViewById(R.id.surface_view);
 		mSubtitleView = (TextView) findViewById(R.id.subtitle_view);

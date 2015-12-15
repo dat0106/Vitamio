@@ -24,8 +24,10 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import io.vov.vitamio.LibsChecker;
+
 import io.vov.vitamio.MediaPlayer;
+import io.vov.vitamio.Vitamio;
+import io.vov.vitamio.utils.Log;
 import io.vov.vitamio.widget.MediaController;
 import io.vov.vitamio.widget.VideoView;
 
@@ -35,19 +37,32 @@ public class VideoViewDemo extends Activity {
 	 * TODO: Set the path variable to a streaming video URL or a local media file
 	 * path.
 	 */
-	private String path = "";
-	private VideoView mVideoView;
-	private EditText mEditText;
+
+	boolean ifUpdate;;
+	
 
 	@Override
 	public void onCreate(Bundle icicle) {
 		super.onCreate(icicle);
-		if (!LibsChecker.checkVitamioLibs(this))
-			return;
+
+		Vitamio.isInitialized(this);
+		
 		setContentView(R.layout.videoview);
+
+		playfunction();	
+
+	}
+
+	
+	void playfunction(){
+		 String path = "";
+		 VideoView mVideoView;
+		 EditText mEditText;
 		mEditText = (EditText) findViewById(R.id.url);
 		mVideoView = (VideoView) findViewById(R.id.surface_view);
-		if (path == "") {
+
+		path="http://dlqncdn.miaopai.com/stream/MVaux41A4lkuWloBbGUGaQ__.mp4";
+      if (path == "") {
 			// Tell the user to provide a media file URL/path.
 			Toast.makeText(VideoViewDemo.this, "Please edit VideoViewDemo Activity, and set path" + " variable to your media file URL/path", Toast.LENGTH_LONG).show();
 			return;
@@ -68,19 +83,6 @@ public class VideoViewDemo extends Activity {
 				}
 			});
 		}
-
-	}
-	
-	public void startPlay(View view) {
-	    String url = mEditText.getText().toString();
-	    path = url;
-	    if (!TextUtils.isEmpty(url)) {
-	        mVideoView.setVideoPath(url);
-	    }
-    }
-	
-	public void openVideo(View View) {
-	  mVideoView.setVideoPath(path);
 	}
 	
 }

@@ -24,10 +24,11 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import io.vov.vitamio.LibsChecker;
+
 import io.vov.vitamio.MediaPlayer;
 import io.vov.vitamio.MediaPlayer.OnBufferingUpdateListener;
 import io.vov.vitamio.MediaPlayer.OnInfoListener;
+import io.vov.vitamio.Vitamio;
 import io.vov.vitamio.widget.MediaController;
 import io.vov.vitamio.widget.VideoView;
 
@@ -46,8 +47,8 @@ public class VideoViewBuffer extends Activity implements OnInfoListener, OnBuffe
   @Override
   public void onCreate(Bundle icicle) {
     super.onCreate(icicle);
-    if (!LibsChecker.checkVitamioLibs(this))
-      return;
+		Vitamio.isInitialized(getApplicationContext());
+
     setContentView(R.layout.videobuffer);
     mVideoView = (VideoView) findViewById(R.id.buffer);
     pb = (ProgressBar) findViewById(R.id.probar);

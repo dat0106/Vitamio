@@ -46,13 +46,14 @@ public class MediaMetadataRetrieverDemo extends Activity {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		long durationMs = Long.parseLong(retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION));
+	
+		String duration=retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION);	
+		long durationMs = Long.parseLong(duration);	
 		String artist = retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ARTIST);
-		String title = retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE);
-		
+		String title = retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE);	
 		setContentView(R.layout.media_metadata);
 		TextView textView = (TextView)findViewById(R.id.textView);
-		textView.setText(durationMs + "" + artist + title);
-		
+		textView.setText(durationMs + "" + artist + title);	
+		retriever.release();
 	}
 }

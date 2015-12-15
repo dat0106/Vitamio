@@ -26,8 +26,8 @@ import android.widget.Toast;
 
 import java.io.IOException;
 
-import io.vov.vitamio.LibsChecker;
 import io.vov.vitamio.MediaPlayer;
+import io.vov.vitamio.Vitamio;
 
 public class MediaPlayerDemo_Audio extends Activity {
 
@@ -46,8 +46,7 @@ public class MediaPlayerDemo_Audio extends Activity {
 	@Override
 	public void onCreate(Bundle icicle) {
 		super.onCreate(icicle);
-		if (!LibsChecker.checkVitamioLibs(this))
-			return;
+		Vitamio.isInitialized(getApplicationContext());
 		tx = new TextView(this);
 		setContentView(tx);
 		Bundle extras = getIntent().getExtras();

@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="io.vov.vitamio.demo">
+    package="io.vov.vitamio.demo"
+    android:versionCode="002"
+    android:versionName="0.0.2" >
 
+    <uses-sdk
+        android:minSdkVersion="7"
+        android:targetSdkVersion="19" />
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
         android:allowBackup="false"
@@ -69,6 +76,14 @@
             android:name=".VideoViewBuffer"
             android:label="@string/title_activity_video_buffer" >
         </activity>
+         <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="563c244467e58e53e60005cc" >
+        </meta-data>
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="demo" >
+        </meta-data>
     </application>
 
 </manifest>

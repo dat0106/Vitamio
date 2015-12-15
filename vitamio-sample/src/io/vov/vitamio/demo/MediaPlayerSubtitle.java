@@ -18,10 +18,10 @@ package io.vov.vitamio.demo;
 
 import java.io.IOException;
 
-import io.vov.vitamio.LibsChecker;
 import io.vov.vitamio.MediaPlayer;
 import io.vov.vitamio.MediaPlayer.OnPreparedListener;
 import io.vov.vitamio.MediaPlayer.OnTimedTextListener;
+import io.vov.vitamio.Vitamio;
 
 import android.os.Bundle;
 import android.os.Environment;
@@ -44,8 +44,7 @@ public class MediaPlayerSubtitle extends Activity implements Callback, OnPrepare
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		if (!LibsChecker.checkVitamioLibs(this))
-			return;
+		Vitamio.isInitialized(getApplicationContext());
 		setContentView(R.layout.subtitle1);
 		tv = (TextView) findViewById(R.id.sub1);
 		splayer = (SurfaceView) findViewById(R.id.surface);
